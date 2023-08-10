@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        .upload-form{
+            border: solid;
+            align-items: center;
+        }
+        #btn{
+            margin-left: 20%;
+            margin-top: 5%;
+            width: 150px;
+            height: 50px;
+            border-radius: 30px;
+            background-color: burlywood;
+            color: #fff;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
     <form method="POST" class="upload-form">
         {% csrf_token%}
         {{ form.as_p}}
-        <button type="submit">Save</button>
+        <button type="submit" id="btn">Save</button>
     </form>
 </body>
 </html>
