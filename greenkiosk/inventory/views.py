@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import ProductUploadForm
 from .models import Product
+from cart.models import Cart
 from django.shortcuts import render,redirect
 
 
@@ -14,7 +15,6 @@ def product_upload_view(request):
     else:
         form =  ProductUploadForm()
     return render(request,"inventory/product_upload.html",{"form":form})
-
 
 
 
@@ -32,15 +32,19 @@ def product_update_view(request,id):
         form = ProductUploadForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-        return redirect("product_description_view", id =product.id)
+            return redirect("product_description_view", id =product.id)
     else:
         form = ProductUploadForm(instance=product)
-        return render(request,"inventory/edit_product.html", {"form":form})
+    return render(request,"inventory/edit_product.html", {"form":form})
     
 def delete_product(request, id):
     product = Product.objects.all(id=id)
     product.delete()
     return redirect("product_list_view")
+
+def cart_list(request, id):
+    cart = Cart.objects.all(id=id)
+    return render(request, "cart/cart_list.html",{cart:cart})
 
     
     

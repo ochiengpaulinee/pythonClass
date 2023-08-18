@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart List</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+        /* Heading styles */
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+        /* List styles */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* List item styles */
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        /* Image styles */
+        img {
+            max-width: 80px;
+            max-height: 80px;
+            display: block;
+            margin-right: 15px;
+        }
+        /* Cart details container */
+        .cart-details {
+            flex-grow: 1;
+        }
+        /* Product details styles */
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .price, .quantity {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+        /* Edit button styles */
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056B3;
+        }
+        /* Link styles */
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cart</h1>
+    <ul>
+        {% for cart in cart %}
+        <li>
+            <div class="cart-details">
+                <p class="product-name">Name: {{ cart.product }}</p>
+                <p class="price">Customer: {{ cart.user }}</p>
+                <p class="quantity">Quantity: {{ cart.quantity }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+

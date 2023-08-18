@@ -11,16 +11,23 @@
             margin-top: 5%;
         }
         p{
-            margin-left: 10%;
+            margin-left: 13.5%;
+            font-size: larger;
+            /* background-color: green; */
         }
+        
         h3{
-            margin-left: 13%;
+            margin-left: 14%;
         }
         button{
             margin-left: 10%;
             width: 150px;
             height: 50px;
             background-color: darkgreen;
+            color: #fff;
+        }
+        button a{
+            text-decoration: none;
             color: #fff;
         }
         h2{
@@ -38,7 +45,8 @@
     <img src="{{product.image.url}}">
     <p>{{product.description}}</p>
     <h3>{{product.price}}</h3>
-    <!-- <a href="{% url 'view_cart' %}" class="add-to-cart">Add To Cart</a> -->
+    <button><a href="{% url 'cart_list' id = cart.id}">Add to cart</a></button>
+    <!-- <button id="btnView"><a href="{% url 'product_description_view' id=product.id %}">View Product</a></button> -->
     </div>
 </body>
 </html>
